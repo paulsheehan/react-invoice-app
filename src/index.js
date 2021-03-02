@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 import "./index.scss";
-import App from "./containers/App";
+import Invoices from "./containers/Invoices";
 import reportWebVitals from "./reportWebVitals";
 import { searchRobots, requestLocalInvoices } from "./reducers";
 
@@ -20,7 +20,7 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Invoices />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

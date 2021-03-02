@@ -1,8 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { requestLocalInvoices } from "../actions";
-import InvoiceList from "../components/InvoiceList/InvoiceList";
-import InvoiceDisplayCard from "../components/InvoiceDisplayCard/InvoiceDisplayCard";
 
 const mapStateToProps = (state) => {
   return {
@@ -17,23 +15,21 @@ const mapDispatchToProps = (dispatch) => {
     onRequestLocalInvoices: () => dispatch(requestLocalInvoices()),
   };
 };
-class InvoicesContainer extends Component {
+class SingleInvoiceContainer extends Component {
   componentDidMount() {
     this.props.onRequestLocalInvoices();
   }
   render() {
-    const { isPending, invoices } = this.props;
-
     return (
       <div>
-        <h1>Invoices</h1>
-        <div className="main-area">
-          {isPending ? <h1>Loading</h1> : <InvoiceList invoices={invoices} />}
-        </div>
-        <InvoiceDisplayCard invoice={invoices[0]} />
+        <h1>Single Invoice</h1>
+        <div className="main-area"></div>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(InvoicesContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SingleInvoiceContainer);
