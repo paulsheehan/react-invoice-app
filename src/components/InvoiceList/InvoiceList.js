@@ -1,6 +1,8 @@
 import "./invoiceList.scss";
 import { ReactComponent as IconArrowDown } from "../../assets/icon-arrow-down.svg";
 import { ReactComponent as IconArrowRight } from "../../assets/icon-arrow-right.svg";
+import moment from "moment";
+
 const InvoiceList = (props) => {
   return (
     <div className="page-content-container">
@@ -27,14 +29,14 @@ const InvoiceList = (props) => {
                 <span className="hash">#</span>
                 {invoice.id}
               </div>
-              <div className="invoice-list-item-value">
-                {invoice.paymentDue}
+              <div className="invoice-list-item-value date">
+                Due {moment(invoice.paymentDue).format("D MMM YYYY")}
               </div>
-              <div className="invoice-list-item-value">
+              <div className="invoice-list-item-value name">
                 {invoice.clientName}
               </div>
               <div className="invoice-list-item-value price">
-                £{invoice.total}
+                £{invoice.total.toLocaleString()}
               </div>
               <div
                 className={
@@ -47,7 +49,7 @@ const InvoiceList = (props) => {
                   <span className="status-text">{invoice.status}</span>
                 </div>
               </div>
-              <span className="invoice-list-item-value">
+              <span className="invoice-list-item-value arrow">
                 <IconArrowRight />
               </span>
             </li>

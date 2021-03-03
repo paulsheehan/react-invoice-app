@@ -7,15 +7,22 @@
   .invoice-list-item {
     height: 72px;
     background-color: $base-bg-col;
+    border-radius: 8px;
+    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+
+    // filter: drop-shadow(0px 10px 10px rgba(72, 84, 159, 0.11));
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    padding: 16px 32px 16px 32px;
+    padding: 16px 24px 16px 32px;
   }
   .invoice-list-item:not(:last-child) {
     margin-bottom: 16px;
+  }
+  &:hover {
+    cursor: pointer;
   }
   .invoice-list-item-value {
     text-align: left;
@@ -27,19 +34,33 @@
       color: $hash-color;
     }
     &.invoice-id {
-      width: 60px;
+      margin-right: 43px;
       font-size: 12px;
       font-weight: bold;
       text-transform: uppercase;
+    }
+    &.date,
+    &.name {
+      font-size: 12px;
+      line-height: 15px;
+      color: $light-text-3;
+    }
+    &.date {
+      width: 110px;
+      margin-right: 41px;
     }
     &.price {
       margin-left: auto;
       font-size: 16px;
       font-weight: bold;
       text-align: right;
+      margin-right: 40px;
     }
     &.status {
       width: 104px;
+    }
+    &.arrow {
+      margin-left: 20px;
     }
   }
   .invoice-list-status {
