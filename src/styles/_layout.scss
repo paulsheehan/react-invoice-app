@@ -1,0 +1,23 @@
+.page-content-container {
+  width: 719px;
+  display: block;
+  margin: 0 auto;
+}
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  background-color: $light-primary;
+  height: 48px;
+  border-radius: 24px;
+  border: none;
+  img {
+    margin-right: 16px;
+  }
+}

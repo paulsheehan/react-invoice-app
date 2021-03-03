@@ -26,11 +26,10 @@ class InvoicesContainer extends Component {
 
     return (
       <div>
-        <h1>Invoices</h1>
         <div className="main-area">
           {isPending ? <h1>Loading</h1> : <InvoiceList invoices={invoices} />}
         </div>
-        <InvoiceDisplayCard invoice={invoices[0]} />
+        {/* <InvoiceDisplayCard invoice={invoices[1]} /> */}
       </div>
     );
   }

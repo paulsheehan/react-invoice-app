@@ -1,10 +1,81 @@
-.invoice-list {
-  ul {
-    list-style: none;
-    padding: 0;
-  }
+@import "../../styles/variables";
 
-  li {
-    background-color: aquamarine;
+.invoice-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  .invoice-list-item {
+    height: 72px;
+    background-color: $base-bg-col;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 32px 16px 32px;
+  }
+  .invoice-list-item:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  .invoice-list-item-value {
+    text-align: left;
+    max-width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &.invoice-id {
+      width: 60px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    &.price {
+      margin-left: auto;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: right;
+    }
+    &.status {
+      width: 104px;
+    }
+  }
+  .invoice-list-status {
+    &.paid {
+      color: #33d69f;
+      background-color: lighten(#33d69f, 45%);
+    }
+    &.pending {
+      color: #ff8f00;
+      background-color: lighten(#ff8f00, 45%);
+    }
+    &.draft {
+      color: #373b53;
+      background-color: lighten(#373b53, 45%);
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 104px;
+    height: 40px;
+    border-radius: 6px;
+    .status-container {
+      display: flex;
+      align-items: flex-end;
+    }
+    .status-text {
+      color: currentColor;
+      line-height: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+    .status-point {
+      display: inline-block;
+      background-color: currentColor;
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
   }
 }
