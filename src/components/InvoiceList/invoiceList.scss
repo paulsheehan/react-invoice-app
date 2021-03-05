@@ -1,8 +1,12 @@
 @import "../../styles/variables";
 
 .invoice-list-head {
+  margin: 72px 0 65px 0;
   margin-top: 72px;
   margin-bottom: 65px;
+  .mobile {
+    display: none;
+  }
   .invoice-list-head-title {
     margin-bottom: 8px;
   }
@@ -134,6 +138,9 @@
 }
 
 @media only screen and (max-width: $laptop-br) {
+  .invoice-list-head {
+    margin: 56px 0;
+  }
   .invoice-list {
     .invoice-list-item {
       padding: 16px 24px 16px 24px;
@@ -150,7 +157,22 @@
 
 @media only screen and (max-width: $mobile-br) {
   .invoice-list-head {
-    display: none;
+    margin: 32px 0;
+    .invoice-list-head-title {
+      margin-bottom: 4px;
+    }
+    .invoice-filter {
+      margin-right: 18px;
+    }
+    .mobile {
+      display: inline-block;
+    }
+    .desktop {
+      display: none;
+    }
+    .arrow {
+      margin-left: 12px;
+    }
   }
   .invoice-list {
     .arrow,

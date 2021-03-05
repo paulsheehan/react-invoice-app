@@ -11,26 +11,29 @@ const InvoiceList = (props) => {
       <div className="invoice-list-head flex-row">
         <div>
           <h1 className="invoice-list-head-title">Invoices</h1>
-          <p className="light-text">
+          <p className="light-text desktop">
             There are {props.invoices.length} total invoices
           </p>
+          <p className="light-text mobile">{props.invoices.length} invoices</p>
         </div>
         <div className="invoice-filter">
-          <span className="body-1 bold">Filter by status</span>
+          <span className="body-1 bold desktop">Filter by status</span>
+          <span className="body-1 bold mobile">Filter</span>
           <IconArrowDown className="arrow" />
         </div>
-        <button class="primary-button with-icon">
+        <button className="primary-button with-icon">
           <span className="button-icon-container">
             <IconPlus />
           </span>
-          <span>New Invoice</span>
+          <span className="desktop">New Invoice</span>
+          <span className="mobile">New</span>
         </button>
       </div>
       {props.invoices.length ? (
         <ul className="invoice-list">
           {props.invoices.map((invoice) => {
             return (
-              <li className="invoice-list-item" tabindex="0" key={invoice.id}>
+              <li className="invoice-list-item" tabIndex="0" key={invoice.id}>
                 <div className="invoice-list-item-value invoice-id body-1 bold">
                   <span className="hash">#</span>
                   {invoice.id}
