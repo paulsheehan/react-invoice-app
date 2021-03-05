@@ -110,3 +110,14 @@
     }
   }
 }
+
+.invoice-list-empty {
+  width: 242px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  .invoice-list-empty-title {
+    margin-top: 64px;
+    margin-bottom: 24px;
+  }
+}

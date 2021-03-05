@@ -31,6 +31,9 @@ button,
   border-style: none;
   font-weight: bold;
   padding: 0 24px 0 23px;
+  &:hover {
+    cursor: pointer;
+  }
   &.with-icon {
     padding: 0 15px 0 8px;
   }
