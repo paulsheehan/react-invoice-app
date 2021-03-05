@@ -30,8 +30,8 @@ const InvoiceList = (props) => {
         <ul className="invoice-list">
           {props.invoices.map((invoice) => {
             return (
-              <li className="invoice-list-item" key={invoice.id}>
-                <div className="invoice-list-item-value invoice-id bold">
+              <li className="invoice-list-item" tabindex="0" key={invoice.id}>
+                <div className="invoice-list-item-value invoice-id body-1 bold">
                   <span className="hash">#</span>
                   {invoice.id}
                 </div>

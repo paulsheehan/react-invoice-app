@@ -41,7 +41,6 @@
   }
   .invoice-list-item-value {
     text-align: left;
-    max-width: 110px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -49,12 +48,13 @@
       color: $hash-color;
     }
     &.invoice-id {
-      margin-right: 43px;
+      margin-right: 40px;
+      width: 63px;
       text-transform: uppercase;
     }
     &.date {
-      width: 110px;
-      margin-right: 41px;
+      width: 130px;
+      margin-right: 10px;
     }
     &.price {
       margin-left: auto;
@@ -119,5 +119,22 @@
   .invoice-list-empty-title {
     margin-top: 64px;
     margin-bottom: 24px;
+  }
+}
+
+@media only screen and (max-width: $laptop-br) {
+  .invoice-list {
+    .invoice-list-item {
+      padding: 16px 24px 16px 24px;
+    }
+    .invoice-list-item-value {
+      &.invoice-id {
+        margin-right: 27px;
+      }
+      &.date {
+        width: 110px;
+        margin-right: 33px;
+      }
+    }
   }
 }

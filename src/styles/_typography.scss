@@ -28,10 +28,10 @@ button,
 .bold {
   font-weight: bold;
 }
-.light-text,
 .light-text {
   font-size: 12px;
   line-height: 15px;
+  letter-spacing: -0.25px;
   color: $light-text-3;
   &--2 {
     color: $light-text-2;
