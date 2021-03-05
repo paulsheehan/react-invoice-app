@@ -39,37 +39,48 @@
   &:hover {
     cursor: pointer;
   }
+
+  // mobile only element
+  .date-price-container {
+    display: none;
+  }
+
+  // all item-values
   .invoice-list-item-value {
     text-align: left;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    .hash {
-      color: $hash-color;
-    }
-    &.invoice-id {
-      margin-right: 40px;
-      width: 63px;
-      text-transform: uppercase;
-    }
-    &.date {
-      width: 130px;
-      margin-right: 10px;
-    }
-    &.price {
-      margin-left: auto;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: right;
-      margin-right: 40px;
-    }
-    &.status {
-      width: 104px;
-    }
-    &.arrow {
-      margin-left: 20px;
-    }
   }
+
+  // specific item-values
+  .hash {
+    color: $hash-color;
+  }
+  .invoice-id {
+    margin-right: 40px;
+    width: 63px;
+    text-transform: uppercase;
+  }
+  .date {
+    width: 130px;
+    margin-right: 10px;
+  }
+  .price {
+    margin-left: auto;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 40px;
+  }
+  .status {
+    width: 104px;
+  }
+  .arrow {
+    margin-left: 20px;
+  }
+
+  // status element
   .invoice-list-status {
     display: flex;
     justify-content: center;
@@ -127,14 +138,59 @@
     .invoice-list-item {
       padding: 16px 24px 16px 24px;
     }
+    .invoice-id {
+      margin-right: 27px;
+    }
+    .date {
+      width: 110px;
+      margin-right: 33px;
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-br) {
+  .invoice-list-head {
+    display: none;
+  }
+  .invoice-list {
+    .arrow,
+    .date.desktop,
+    .price.desktop {
+      display: none;
+    }
+    .invoice-list-item {
+      height: 134px;
+      flex-wrap: wrap;
+      padding: 24px;
+    }
     .invoice-list-item-value {
+      margin: 0;
+      width: 50%;
+      &.name {
+        margin-top: 2px;
+        align-self: flex-start;
+        text-align: right;
+      }
       &.invoice-id {
-        margin-right: 27px;
+        margin-bottom: 24px;
       }
-      &.date {
-        width: 110px;
-        margin-right: 33px;
-      }
+    }
+    .date-price-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .price,
+    .date {
+      margin: 0;
+    }
+    .date {
+      margin-bottom: 8px;
+    }
+
+    .invoice-list-status {
+      width: 104px;
     }
   }
 }

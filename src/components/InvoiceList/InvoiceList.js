@@ -35,13 +35,23 @@ const InvoiceList = (props) => {
                   <span className="hash">#</span>
                   {invoice.id}
                 </div>
-                <div className="invoice-list-item-value date light-text">
+                <div className="invoice-list-item-value date light-text desktop">
                   Due {moment(invoice.paymentDue).format("D MMM YYYY")}
                 </div>
                 <div className="invoice-list-item-value name light-text light-text--2">
                   {invoice.clientName}
                 </div>
-                <div className="invoice-list-item-value price">
+
+                <div className="invoice-list-item-value date-price-container">
+                  <span className="date light-text">
+                    Due {moment(invoice.paymentDue).format("D MMM YYYY")}
+                  </span>
+                  <span className="price">
+                    £{invoice.total.toLocaleString()}
+                  </span>
+                </div>
+
+                <div className="invoice-list-item-value price desktop">
                   £{invoice.total.toLocaleString()}
                 </div>
                 <div
