@@ -18,7 +18,12 @@ const InvoiceList = (props) => {
           <span className="body-1 bold">Filter by status</span>
           <IconArrowDown className="arrow" />
         </div>
-        <button class="primary-button">Mark as Paid</button>
+        <button class="primary-button with-icon">
+          <span className="button-icon-container">
+            <IconPlus className="button-icon" />
+          </span>
+          New Invoice
+        </button>
       </div>
       <ul className="invoice-list">
         {props.invoices.map((invoice) => {

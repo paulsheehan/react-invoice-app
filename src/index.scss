@@ -19,7 +19,11 @@ body {
   background-color: $light-bg;
 }
 
+button,
 .primary-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 48px;
   background-color: $light-primary;
   color: #ffffff;
@@ -27,6 +31,23 @@ body {
   border-style: none;
   font-weight: bold;
   padding: 0 24px 0 23px;
+  &.with-icon {
+    padding: 0 15px 0 8px;
+  }
+
+  .button-icon-container {
+    display: inline-flex;
+    background-color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button-icon {
+  }
 }
 
 // .primary-button {
