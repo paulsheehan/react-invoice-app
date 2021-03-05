@@ -50,17 +50,11 @@ button,
   }
 }
 
-// .primary-button {
-//   background-color: $light-primary;
-//   height: 48px;
-//   border-radius: 24px;
-//   border: none;
-//   color: #ffffff;
-//   .button-icon-container {
-//     height: 32px;
-//     width: 32px;
-//     margin-right: 16px;
-//     border-radius: 50%;
-//     background-color: #ffffff;
-//   }
-// }
+@media only screen and (max-width: $mobile-br) {
+  button,
+  .primary-button {
+    .button-icon-container {
+      margin-right: 8px;
+    }
+  }
+}

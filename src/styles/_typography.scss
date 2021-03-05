@@ -28,12 +28,19 @@ button,
 .bold {
   font-weight: bold;
 }
-.light-text,
 .light-text {
   font-size: 12px;
   line-height: 15px;
+  letter-spacing: -0.25px;
   color: $light-text-3;
   &--2 {
     color: $light-text-2;
+  }
+}
+
+@media only screen and (max-width: $mobile-br) {
+  h1 {
+    font-size: 20px;
+    line-height: normal;
   }
 }
