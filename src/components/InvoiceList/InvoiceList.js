@@ -20,9 +20,9 @@ const InvoiceList = (props) => {
         </div>
         <button class="primary-button with-icon">
           <span className="button-icon-container">
-            <IconPlus className="button-icon" />
+            <IconPlus />
           </span>
-          New Invoice
+          <span>New Invoice</span>
         </button>
       </div>
       <ul className="invoice-list">
