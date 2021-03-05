@@ -1,0 +1,123 @@
+@import "../../styles/variables";
+
+.invoice-list-head {
+  margin-top: 72px;
+  margin-bottom: 65px;
+  .invoice-list-head-title {
+    margin-bottom: 8px;
+  }
+  .invoice-filter {
+    margin-left: auto;
+    margin-right: 40px;
+  }
+  .arrow {
+    margin-left: 16px;
+  }
+}
+
+.invoice-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  .invoice-list-item {
+    height: 72px;
+    background-color: $base-bg-col;
+    border-radius: 8px;
+    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+
+    // filter: drop-shadow(0px 10px 10px rgba(72, 84, 159, 0.11));
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 24px 16px 32px;
+  }
+  .invoice-list-item:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  .invoice-list-item-value {
+    text-align: left;
+    max-width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    .hash {
+      color: $hash-color;
+    }
+    &.invoice-id {
+      margin-right: 43px;
+      text-transform: uppercase;
+    }
+    &.date {
+      width: 110px;
+      margin-right: 41px;
+    }
+    &.price {
+      margin-left: auto;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: right;
+      margin-right: 40px;
+    }
+    &.status {
+      width: 104px;
+    }
+    &.arrow {
+      margin-left: 20px;
+    }
+  }
+  .invoice-list-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 104px;
+    height: 40px;
+    border-radius: 6px;
+    &.paid {
+      color: #33d69f;
+      background-color: lighten(#33d69f, 45%);
+    }
+    &.pending {
+      color: #ff8f00;
+      background-color: lighten(#ff8f00, 45%);
+    }
+    &.draft {
+      color: #373b53;
+      background-color: lighten(#979797, 35%);
+    }
+    .status-container {
+      display: flex;
+      align-items: flex-end;
+    }
+    .status-text {
+      color: currentColor;
+      line-height: 9px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+    .status-point {
+      display: inline-block;
+      background-color: currentColor;
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+  }
+}
+
+.invoice-list-empty {
+  width: 242px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  .invoice-list-empty-title {
+    margin-top: 64px;
+    margin-bottom: 24px;
+  }
+}

@@ -1,0 +1,14 @@
+.page-content-container {
+  width: 719px;
+  display: block;
+  margin: 0 auto;
+}
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
