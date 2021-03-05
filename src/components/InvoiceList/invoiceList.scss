@@ -1,5 +1,19 @@
 @import "../../styles/variables";
 
+.invoice-list-head {
+  margin-bottom: 65px;
+  .invoice-list-head-title {
+    margin-bottom: 8px;
+  }
+  .invoice-filter {
+    margin-left: auto;
+    margin-right: 40px;
+  }
+  .arrow {
+    margin-left: 16px;
+  }
+}
+
 .invoice-list {
   width: 100%;
   list-style: none;
@@ -35,15 +49,7 @@
     }
     &.invoice-id {
       margin-right: 43px;
-      font-size: 12px;
-      font-weight: bold;
       text-transform: uppercase;
-    }
-    &.date,
-    &.name {
-      font-size: 12px;
-      line-height: 15px;
-      color: $light-text-3;
     }
     &.date {
       width: 110px;
@@ -80,7 +86,7 @@
     }
     &.draft {
       color: #373b53;
-      background-color: lighten(#373b53, 45%);
+      background-color: lighten(#979797, 35%);
     }
     .status-container {
       display: flex;
@@ -88,7 +94,7 @@
     }
     .status-text {
       color: currentColor;
-      line-height: 12px;
+      line-height: 9px;
       font-size: 12px;
       font-weight: bold;
       text-transform: capitalize;

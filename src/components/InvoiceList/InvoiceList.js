@@ -1,38 +1,37 @@
 import "./invoiceList.scss";
 import { ReactComponent as IconArrowDown } from "../../assets/icon-arrow-down.svg";
 import { ReactComponent as IconArrowRight } from "../../assets/icon-arrow-right.svg";
+import { ReactComponent as IconPlus } from "../../assets/icon-plus.svg";
 import moment from "moment";
 
 const InvoiceList = (props) => {
   return (
     <div className="page-content-container">
-      {/* <div className="invoice-list-head">
-        <div className="flex-col">
-          <h1>Invoices</h1>
-          <p className="body-1">
+      <div className="invoice-list-head flex-row">
+        <div>
+          <h1 className="invoice-list-head-title">Invoices</h1>
+          <p className="light-text">
             There are {props.invoices.length} total invoices
           </p>
         </div>
-        <div>
-          <span className="body-1">Filter by status</span>
-          <IconArrowDown />
+        <div className="invoice-filter">
+          <span className="body-1 bold">Filter by status</span>
+          <IconArrowDown className="arrow" />
         </div>
-        <button className="button-1">
-          <img /> <span className="body-1">New Invoice</span>
-        </button>
-      </div> */}
+        <button class="primary-button">Mark as Paid</button>
+      </div>
       <ul className="invoice-list">
         {props.invoices.map((invoice) => {
           return (
             <li className="invoice-list-item" key={invoice.id}>
-              <div className="invoice-list-item-value invoice-id">
+              <div className="invoice-list-item-value invoice-id bold">
                 <span className="hash">#</span>
                 {invoice.id}
               </div>
-              <div className="invoice-list-item-value date">
+              <div className="invoice-list-item-value date light-text">
                 Due {moment(invoice.paymentDue).format("D MMM YYYY")}
               </div>
-              <div className="invoice-list-item-value name">
+              <div className="invoice-list-item-value name light-text light-text--2">
                 {invoice.clientName}
               </div>
               <div className="invoice-list-item-value price">

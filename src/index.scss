@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
 @import "./styles/variables";
 @import "./styles/typography";
 @import "./styles/layout";
@@ -6,6 +7,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -16,7 +19,27 @@ body {
   background-color: $light-bg;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.primary-button {
+  height: 48px;
+  background-color: $light-primary;
+  color: #ffffff;
+  border-radius: 24px;
+  border-style: none;
+  font-weight: bold;
+  padding: 0 24px 0 23px;
 }
+
+// .primary-button {
+//   background-color: $light-primary;
+//   height: 48px;
+//   border-radius: 24px;
+//   border: none;
+//   color: #ffffff;
+//   .button-icon-container {
+//     height: 32px;
+//     width: 32px;
+//     margin-right: 16px;
+//     border-radius: 50%;
+//     background-color: #ffffff;
+//   }
+// }

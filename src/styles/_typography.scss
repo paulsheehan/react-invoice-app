@@ -14,6 +14,7 @@ h3 {
   letter-spacing: -0.8px;
 }
 p,
+button,
 .body-1 {
   font-size: 12px;
   line-height: 15px;
@@ -26,4 +27,13 @@ p,
 }
 .bold {
   font-weight: bold;
+}
+.light-text,
+.light-text {
+  font-size: 12px;
+  line-height: 15px;
+  color: $light-text-3;
+  &--2 {
+    color: $light-text-2;
+  }
 }
