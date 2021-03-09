@@ -1,12 +1,15 @@
+import moment from "moment";
+import useRouter from "../../utilities/useRouter";
 import "./invoiceList.scss";
 import { ReactComponent as IconArrowDown } from "../../assets/icon-arrow-down.svg";
 import { ReactComponent as IconArrowRight } from "../../assets/icon-arrow-right.svg";
 import { ReactComponent as IconPlus } from "../../assets/icon-plus.svg";
 import { ReactComponent as EmptyIllustration } from "../../assets/illustration-empty.svg";
-import moment from "moment";
 
 const InvoiceList = (props) => {
+  const router = useRouter();
   return (
+    // Head Element
     <div className="page-content-container">
       <div className="invoice-list-head flex-row">
         <div>
@@ -29,11 +32,18 @@ const InvoiceList = (props) => {
           <span className="mobile">New</span>
         </button>
       </div>
+
       {props.invoices.length ? (
+        // Invoice List
         <ul className="invoice-list">
           {props.invoices.map((invoice) => {
             return (
-              <li className="invoice-list-item" tabIndex="0" key={invoice.id}>
+              <li
+                className="invoice-list-item"
+                tabIndex="0"
+                key={invoice.id}
+                onClick={(e) => router.push("/invoices/" + invoice.id)}
+              >
                 <div className="invoice-list-item-value invoice-id body-1 bold">
                   <span className="hash">#</span>
                   {invoice.id}
@@ -76,6 +86,7 @@ const InvoiceList = (props) => {
           })}
         </ul>
       ) : (
+        // No invoices
         <div className="invoice-list-empty">
           <EmptyIllustration />
           <h2 className="invoice-list-empty-title">There is nothing here</h2>

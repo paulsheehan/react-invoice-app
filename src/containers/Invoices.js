@@ -2,7 +2,6 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { requestLocalInvoices } from "../actions";
 import InvoiceList from "../components/InvoiceList/InvoiceList";
-import InvoiceDisplayCard from "../components/InvoiceDisplayCard/InvoiceDisplayCard";
 
 const mapStateToProps = (state) => {
   return {
@@ -29,7 +28,6 @@ class InvoicesContainer extends Component {
         <div className="main-area">
           {isPending ? <h1>Loading</h1> : <InvoiceList invoices={invoices} />}
         </div>
-        {/* <InvoiceDisplayCard invoice={invoices[1]} /> */}
       </div>
     );
   }

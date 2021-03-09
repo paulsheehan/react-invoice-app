@@ -1,14 +1,12 @@
 import {
-  CHANGE_SEARCH_FIELD,
   REQUEST_LOCAL_INVOICES_PENDING,
   REQUEST_LOCAL_INVOICES_SUCCESS,
   REQUEST_LOCAL_INVOICES_FAILED,
+  REQUEST_LOCAL_INVOICE_PENDING,
+  REQUEST_LOCAL_INVOICE_SUCCESS,
+  REQUEST_LOCAL_INVOICE_FAILED,
 } from "./constants.js";
 import { localInvoiceData } from "./data/data.js";
-export const setSearchField = (text) => ({
-  type: CHANGE_SEARCH_FIELD,
-  payload: text,
-});
 
 export const requestLocalInvoices = () => (dispatch) => {
   dispatch({ type: REQUEST_LOCAL_INVOICES_PENDING });
@@ -20,5 +18,27 @@ export const requestLocalInvoices = () => (dispatch) => {
     });
   } catch (error) {
     dispatch({ type: REQUEST_LOCAL_INVOICES_FAILED, payload: error });
+  }
+};
+
+export const requestLocalInvoice = (invoiceId) => async (dispatch) => {
+  dispatch({ type: REQUEST_LOCAL_INVOICE_PENDING });
+  try {
+    let payload = await localInvoiceData.find(
+      (invoice) => invoice.id === invoiceId
+    );
+    if (payload) {
+      dispatch({
+        type: REQUEST_LOCAL_INVOICE_SUCCESS,
+        payload: payload,
+      });
+    } else {
+      dispatch({
+        type: REQUEST_LOCAL_INVOICE_FAILED,
+        payload: "404: Invoice not found",
+      });
+    }
+  } catch (error) {
+    dispatch({ type: REQUEST_LOCAL_INVOICE_FAILED, payload: error });
   }
 };

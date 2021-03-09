@@ -1,17 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
-import "./index.scss";
-import Invoices from "./containers/Invoices";
 import reportWebVitals from "./reportWebVitals";
-import { searchRobots, requestLocalInvoices } from "./reducers";
+
+import "./index.scss";
+import { requestLocalInvoices, requestLocalInvoice } from "./reducers";
+import Invoices from "./containers/Invoices";
+import SingleInvoice from "./containers/SingleInvoice";
+import InvoiceDisplayCard from "./components/InvoiceDisplayCard/InvoiceDisplayCard";
 
 const logger = createLogger();
 
-const rootReducer = combineReducers({ searchRobots, requestLocalInvoices });
+const rootReducer = combineReducers({
+  requestLocalInvoices,
+  requestLocalInvoice,
+});
 const store = createStore(
   rootReducer,
   applyMiddleware(thunkMiddleware, logger)
@@ -20,7 +27,13 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Invoices />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Invoices} />
+          <Route exact path="/invoices/:id" component={SingleInvoice} />
+          <Route component={Invoices} />
+        </Switch>
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
