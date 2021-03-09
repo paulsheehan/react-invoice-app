@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { requestLocalInvoices } from "../actions";
+import InvoiceDisplayCard from "../components/InvoiceDisplayCard/InvoiceDisplayCard";
 
 const mapStateToProps = (state) => {
   return {
@@ -24,6 +25,7 @@ class SingleInvoiceContainer extends Component {
       <div>
         <h1>Single Invoice</h1>
         <div className="main-area"></div>
+        {/* <InvoiceDisplayCard invoice={invoices[1]} /> */}
       </div>
     );
   }
