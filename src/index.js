@@ -8,14 +8,17 @@ import thunkMiddleware from "redux-thunk";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.scss";
-import { searchRobots, requestLocalInvoices } from "./reducers";
+import { requestLocalInvoices, requestLocalInvoice } from "./reducers";
 import Invoices from "./containers/Invoices";
 import SingleInvoice from "./containers/SingleInvoice";
 import InvoiceDisplayCard from "./components/InvoiceDisplayCard/InvoiceDisplayCard";
 
 const logger = createLogger();
 
-const rootReducer = combineReducers({ searchRobots, requestLocalInvoices });
+const rootReducer = combineReducers({
+  requestLocalInvoices,
+  requestLocalInvoice,
+});
 const store = createStore(
   rootReducer,
   applyMiddleware(thunkMiddleware, logger)
