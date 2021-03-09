@@ -20,7 +20,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 class SingleInvoiceContainer extends Component {
   componentDidMount() {
-    this.props.onRequestSingleInvoice("RT3080");
+    let id = this.props.match.params.id;
+    this.props.onRequestSingleInvoice(id);
   }
   render() {
     const { isPending, invoice, error } = this.props;
