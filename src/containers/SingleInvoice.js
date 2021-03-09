@@ -30,14 +30,13 @@ class SingleInvoiceContainer extends Component {
       return <Redirect to="/" />;
     } else {
       return (
-        <div>
-          <h1>Single Invoice</h1>
+        <>
           {isPending ? (
             <h1>Loading</h1>
           ) : (
             <InvoiceDisplayCard invoice={invoice} />
           )}
-        </div>
+        </>
       );
     }
   }

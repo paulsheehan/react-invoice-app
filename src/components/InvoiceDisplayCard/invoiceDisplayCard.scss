@@ -1,3 +1,29 @@
+@import "../../styles/variables";
+
 .invoice-display-card {
-  background-color: beige;
+  margin-top: 64px;
+  .invoice-display-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $item-bg;
+    border-radius: 8px;
+    height: 88px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    padding: 20px 32px;
+
+    .status {
+      margin-left: 16px;
+    }
+    .buttons-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: auto;
+      button:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
 }

@@ -17,6 +17,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $light-bg;
+  color: $normal-text;
 }
 
 button,
@@ -38,7 +39,6 @@ button,
     padding: 0 15px 0 8px;
   }
   .button-icon-container {
-    display: inline-flex;
     background-color: #ffffff;
     width: 32px;
     height: 32px;
@@ -47,6 +47,66 @@ button,
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  &.danger {
+    background-color: $danger;
+  }
+  &.default {
+    background-color: $default;
+    color: $light-text-1;
+  }
+}
+// status element
+.invoice-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 104px;
+  height: 40px;
+  border-radius: 6px;
+  &.paid {
+    color: #33d69f;
+    background-color: lighten(#33d69f, 45%);
+  }
+  &.pending {
+    color: #ff8f00;
+    background-color: lighten(#ff8f00, 45%);
+  }
+  &.draft {
+    color: #373b53;
+    background-color: lighten(#979797, 35%);
+  }
+  .status-container {
+    display: flex;
+    align-items: flex-end;
+  }
+  .status-text {
+    color: currentColor;
+    line-height: 9px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  .status-point {
+    display: inline-block;
+    background-color: currentColor;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+}
+.back-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: bold;
+  .back-nav-text {
+    margin-left: 24px;
+  }
+  a {
+    color: $normal-text;
+    text-decoration: none;
   }
 }
 

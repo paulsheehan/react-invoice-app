@@ -67,10 +67,10 @@ const InvoiceList = (props) => {
                 <div className="invoice-list-item-value price desktop">
                   £{invoice.total.toLocaleString()}
                 </div>
+
                 <div
                   className={
-                    "invoice-list-item-value invoice-list-status " +
-                    invoice.status
+                    "invoice-list-item-value invoice-status " + invoice.status
                   }
                 >
                   <div className="status-container">
