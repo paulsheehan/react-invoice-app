@@ -6,7 +6,10 @@
 .flex-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  &--center {
+    align-items: center;
+  }
 }
 .flex-col {
   display: flex;

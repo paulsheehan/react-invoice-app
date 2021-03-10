@@ -23,20 +23,28 @@ class SingleInvoiceContainer extends Component {
     let id = this.props.match.params.id;
     this.props.onRequestSingleInvoice(id);
   }
+
   render() {
     const { isPending, invoice, error } = this.props;
+
     if (Object.keys(invoice).length === 0 && this.props.error) {
       // 404 no invoice found
       return <Redirect to="/" />;
     } else {
       return (
-        <>
+        <div className="page-content-container">
           {isPending ? (
             <h1>Loading</h1>
           ) : (
-            <InvoiceDisplayCard invoice={invoice} />
+            <>
+              {Object.keys(invoice).length ? (
+                <InvoiceDisplayCard invoice={invoice} />
+              ) : (
+                <h1>No Invoice</h1>
+              )}
+            </>
           )}
-        </>
+        </div>
       );
     }
   }

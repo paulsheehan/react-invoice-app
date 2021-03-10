@@ -58,9 +58,6 @@
   }
 
   // specific item-values
-  .hash {
-    color: $hash-color;
-  }
   .invoice-id {
     margin-right: 40px;
     width: 63px;
@@ -82,6 +79,10 @@
   }
   .arrow {
     margin-left: 20px;
+  }
+  .extra-space:after {
+    content: " ";
+    white-space: pre;
   }
 }
 

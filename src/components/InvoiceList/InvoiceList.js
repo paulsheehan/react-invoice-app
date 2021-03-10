@@ -1,5 +1,5 @@
-import moment from "moment";
 import useRouter from "../../utilities/useRouter";
+import prettyDate from "../../utilities/prettyDate";
 import "./invoiceList.scss";
 import { ReactComponent as IconArrowDown } from "../../assets/icon-arrow-down.svg";
 import { ReactComponent as IconArrowRight } from "../../assets/icon-arrow-right.svg";
@@ -9,9 +9,9 @@ import { ReactComponent as EmptyIllustration } from "../../assets/illustration-e
 const InvoiceList = (props) => {
   const router = useRouter();
   return (
-    // Head Element
-    <div className="page-content-container">
-      <div className="invoice-list-head flex-row">
+    <>
+      {/* Head element */}
+      <div className="invoice-list-head flex-row flex-row--center">
         <div>
           <h1 className="invoice-list-head-title">Invoices</h1>
           <p className="light-text desktop">
@@ -49,7 +49,8 @@ const InvoiceList = (props) => {
                   {invoice.id}
                 </div>
                 <div className="invoice-list-item-value date light-text desktop">
-                  Due {moment(invoice.paymentDue).format("D MMM YYYY")}
+                  <span className="extra-space">Due </span>{" "}
+                  {prettyDate(invoice.paymentDue)}
                 </div>
                 <div className="invoice-list-item-value name light-text light-text--2">
                   {invoice.clientName}
@@ -57,7 +58,8 @@ const InvoiceList = (props) => {
 
                 <div className="invoice-list-item-value date-price-container">
                   <span className="date light-text">
-                    Due {moment(invoice.paymentDue).format("D MMM YYYY")}
+                    <span className="extra-space">Due</span>{" "}
+                    {prettyDate(invoice.paymentDue)}
                   </span>
                   <span className="price">
                     £{invoice.total.toLocaleString()}
@@ -96,7 +98,7 @@ const InvoiceList = (props) => {
           </p>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

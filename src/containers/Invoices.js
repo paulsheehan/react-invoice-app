@@ -24,7 +24,9 @@ class InvoicesContainer extends Component {
     const { isPending, invoices } = this.props;
 
     return (
-      <>{isPending ? <h1>Loading</h1> : <InvoiceList invoices={invoices} />}</>
+      <div className="page-content-container">
+        {isPending ? <h1>Loading</h1> : <InvoiceList invoices={invoices} />}
+      </div>
     );
   }
 }

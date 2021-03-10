@@ -26,4 +26,22 @@
       }
     }
   }
+  .invoice-item-title {
+    margin-bottom: 8px;
+  }
+  .invoice-item-light {
+    margin-bottom: 12px;
+  }
+  .invoice-display-main {
+    display: flex;
+    flex-direction: column;
+  }
+  .invoice-mid {
+    margin-top: 21px;
+  }
+  .invoice-address {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
 }
