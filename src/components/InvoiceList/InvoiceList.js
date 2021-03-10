@@ -52,7 +52,7 @@ const InvoiceList = (props) => {
                   <span className="extra-space">Due </span>{" "}
                   {prettyDate(invoice.paymentDue)}
                 </div>
-                <div className="invoice-list-item-value name light-text light-text--2">
+                <div className="invoice-list-item-value text-ellipsis name light-text light-text--2">
                   {invoice.clientName}
                 </div>
 

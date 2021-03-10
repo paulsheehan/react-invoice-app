@@ -4,7 +4,9 @@
   margin-top: 64px;
 
   .invoice-display-head,
-  .invoice-display-main {
+  .invoice-display-main,
+  .invoice-items-balance {
+    overflow: hidden;
     border-radius: 8px;
   }
 
@@ -45,6 +47,16 @@
     margin-top: 21px;
     margin-bottom: 45px;
   }
+  .invoice-list-container {
+    background-color: $default;
+    padding: 16px 32px 24px 32px;
+    .invoice-list-item {
+      padding: 16px 0;
+    }
+    .invoice-list-value {
+      width: 25%;
+    }
+  }
 
   // Individual Items
   .invoice-item-title {
@@ -63,5 +75,22 @@
   }
   .invoice-bill-col {
     padding-bottom: 3px;
+  }
+  .invoice-list-name {
+    width: 286px;
+  }
+  .invoice-list-quantity {
+    text-align: center;
+  }
+  .invoice-list-price {
+    text-align: right;
+  }
+  .invoice-list-total {
+    text-align: right;
+  }
+  .invoice-balance-total {
+    background-color: $hard-item-bg;
+    color: #ffffff;
+    padding: 24px 32px;
   }
 }

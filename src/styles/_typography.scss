@@ -55,6 +55,16 @@ button,
   letter-spacing: -0.31px;
   font-weight: bold;
 }
+.big-total {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+}
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 @media only screen and (max-width: $mobile-br) {
   h1 {

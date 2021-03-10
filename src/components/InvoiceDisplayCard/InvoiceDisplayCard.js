@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { ReactComponent as IconArrowLeft } from "../../assets/icon-arrow-left.svg";
 const InvoiceDisplayCard = (props) => {
   const { invoice } = props;
-  console.log("Invoice => ", invoice);
   return (
     <>
       <div className="invoice-display-card">
@@ -124,7 +123,51 @@ const InvoiceDisplayCard = (props) => {
           ) : null}
 
           {invoice ? (
-            <div className="flex-col invoice-items-balance"></div>
+            <div className="flex-col invoice-items-balance">
+              {/* List Items */}
+              <ul className="flex-col invoice-list-container">
+                <li className="flex-row flex-row--center invoice-list-item">
+                  <span className="light-small bold text-ellipses invoice-list-value invoice-list-name">
+                    Item Name
+                  </span>
+                  <span className="light-small bold invoice-list-value invoice-list-quantity">
+                    QTY.
+                  </span>
+                  <span className="light-small bold invoice-list-value invoice-list-price">
+                    Price
+                  </span>
+                  <span className="light-small bold invoice-list-value invoice-list-total">
+                    Total
+                  </span>
+                </li>
+
+                {invoice.items.map((item) => {
+                  return (
+                    <li className="flex-row flex-row--center invoice-list-item">
+                      <span className="body-1 bold invoice-list-value invoice-list-name">
+                        {item.name}
+                      </span>
+                      <span className="light-text light-text--1 bold  invoice-list-value invoice-list-quantity">
+                        {item.quantity}
+                      </span>
+                      <span className="light-small light-text--1 bold invoice-list-value invoice-list-price">
+                        <span className="extra-space">£ </span>
+                        {item.price}
+                      </span>
+                      <span className="body-1 bold invoice-list-value invoice-list-total">
+                        <span className="extra-space">£ </span>
+                        {item.total}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+              {/* List Total */}
+              <div className="flex-row flex-row--center invoice-balance-total">
+                <span>Amount Due</span>
+                <span>{invoice.total}</span>
+              </div>
+            </div>
           ) : null}
         </div>
       </div>
