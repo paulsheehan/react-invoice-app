@@ -71,13 +71,53 @@ const InvoiceDisplayCard = (props) => {
           ) : null}
 
           {invoice ? (
-            <div className="flex-col invoice-mid">
-              <div className="flex-col">
+            <div className="flex-row flex-row--stretch invoice-mid">
+              <div className="flex-col flex-col--space-between">
+                <div className="flex-col">
+                  <span className="light-text light-text--1 invoice-item-light">
+                    Invoice Date
+                  </span>
+                  <span className="item-title invoice-item-title">
+                    {prettyDate(invoice.createdAt)}
+                  </span>
+                </div>
+                <div className="flex-col">
+                  <span className="light-text light-text--1 invoice-item-light">
+                    Invoice Date
+                  </span>
+                  <span className="item-title invoice-item-title">
+                    {prettyDate(invoice.createdAt)}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex-col invoice-bill-col">
                 <span className="light-text light-text--1 invoice-item-light">
-                  Invoice Date
+                  Bill To
                 </span>
                 <span className="item-title invoice-item-title">
-                  {prettyDate(invoice.createdAt)}
+                  {invoice ? invoice["clientName"] : null}
+                </span>
+                <span className="light-small">
+                  {invoice ? invoice["clientAddress"]["street"] : null}
+                </span>
+                <span className="light-small">
+                  {invoice ? invoice["clientAddress"]["city"] : null}
+                </span>
+                <span className="light-small">
+                  {invoice ? invoice["clientAddress"]["postCode"] : null}
+                </span>
+                <span className="light-small">
+                  {invoice ? invoice["clientAddress"]["country"] : null}
+                </span>
+              </div>
+
+              <div className="flex-col invoice-email-col">
+                <span className="light-text light-text--1 invoice-item-light">
+                  Sent to
+                </span>
+                <span className="item-title invoice-item-title word-wrap">
+                  {invoice ? invoice["clientEmail"] : null}
                 </span>
               </div>
             </div>

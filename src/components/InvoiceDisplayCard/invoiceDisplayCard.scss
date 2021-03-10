@@ -2,6 +2,13 @@
 
 .invoice-display-card {
   margin-top: 64px;
+
+  .invoice-display-head,
+  .invoice-display-main {
+    border-radius: 8px;
+  }
+
+  // Main Blocks (Rows)
   .invoice-display-head {
     display: flex;
     justify-content: space-between;
@@ -26,22 +33,35 @@
       }
     }
   }
+  .invoice-display-main {
+    display: flex;
+    flex-direction: column;
+    background-color: $item-bg;
+    padding: 48px;
+  }
+
+  // Row Items
+  .invoice-mid {
+    margin-top: 21px;
+    margin-bottom: 45px;
+  }
+
+  // Individual Items
   .invoice-item-title {
     margin-bottom: 8px;
   }
   .invoice-item-light {
     margin-bottom: 12px;
   }
-  .invoice-display-main {
-    display: flex;
-    flex-direction: column;
-  }
-  .invoice-mid {
-    margin-top: 21px;
-  }
   .invoice-address {
     display: flex;
     flex-direction: column;
     text-align: right;
+  }
+  .invoice-email-col {
+    width: 235px;
+  }
+  .invoice-bill-col {
+    padding-bottom: 3px;
   }
 }
