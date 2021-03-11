@@ -43,7 +43,7 @@ const InvoiceDisplayCard = (props) => {
         <div className="invoice-display-main">
           {invoice ? (
             <div className="flex-row invoice-top">
-              <div className="flex-col">
+              <div className="flex-col id-description">
                 <h3 className="item-title invoice-item-title">
                   <span className="hash">#</span>
                   {invoice.id}

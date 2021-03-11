@@ -102,3 +102,34 @@
     }
   }
 }
+
+@media only screen and (max-width: $mobile-br) {
+  .invoice-display-card {
+    .invoice-display-main {
+      padding: 24px;
+    }
+    .invoice-top {
+      flex-direction: column;
+    }
+    .id-description {
+      margin-bottom: 30px;
+    }
+    .invoice-item-title {
+      margin-bottom: 4px;
+    }
+    .invoice-address {
+      text-align: left;
+    }
+    .invoice-mid {
+      flex-wrap: wrap;
+      margin-top: 31px;
+      margin-bottom: 40px;
+    }
+    .invoice-bill-col {
+      width: 50%;
+    }
+    .invoice-email-col {
+      margin-top: 32px;
+    }
+  }
+}
