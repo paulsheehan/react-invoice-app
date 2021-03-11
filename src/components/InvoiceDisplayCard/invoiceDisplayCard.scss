@@ -50,12 +50,6 @@
   .invoice-list-container {
     background-color: $default;
     padding: 16px 32px 24px 32px;
-    .invoice-list-item {
-      padding: 16px 0;
-    }
-    .invoice-list-value {
-      width: 25%;
-    }
   }
 
   // Individual Items
@@ -76,21 +70,35 @@
   .invoice-bill-col {
     padding-bottom: 3px;
   }
+  .invoice-list-item {
+    padding: 16px 0;
+  }
   .invoice-list-name {
     width: 286px;
   }
   .invoice-list-quantity {
+    width: 29px;
     text-align: center;
   }
   .invoice-list-price {
+    width: 118px;
     text-align: right;
   }
   .invoice-list-total {
+    width: 137px;
     text-align: right;
   }
   .invoice-balance-total {
     background-color: $hard-item-bg;
     color: #ffffff;
     padding: 24px 32px;
+  }
+}
+
+@media only screen and (max-width: $laptop-br) {
+  .invoice-display-card {
+    .invoice-display-main {
+      padding: 32px;
+    }
   }
 }
