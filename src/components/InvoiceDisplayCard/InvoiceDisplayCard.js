@@ -147,7 +147,7 @@ const InvoiceDisplayCard = (props) => {
                       <span className="body-1 bold invoice-list-value invoice-list-name">
                         {item.name}
                       </span>
-                      <span className="light-text light-text--1 bold  invoice-list-value invoice-list-quantity">
+                      <span className="light-text light-text--1 bold invoice-list-value invoice-list-quantity">
                         {item.quantity}
                       </span>
                       <span className="light-small light-text--1 bold invoice-list-value invoice-list-price">
@@ -164,8 +164,11 @@ const InvoiceDisplayCard = (props) => {
               </ul>
               {/* List Total */}
               <div className="flex-row flex-row--center invoice-balance-total">
-                <span>Amount Due</span>
-                <span>{invoice.total}</span>
+                <span className="body-2">Amount Due</span>
+                <span className="big-total">
+                  <span className="extra-space">£ </span>
+                  {invoice.total}
+                </span>
               </div>
             </div>
           ) : null}
