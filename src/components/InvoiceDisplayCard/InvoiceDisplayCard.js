@@ -141,15 +141,12 @@ const InvoiceDisplayCard = (props) => {
                   </span>
                 </li>
 
-                {invoice.items.map((item) => {
+                {invoice.items.map((item, i) => {
                   return (
-                    <div
-                      className="invoice-dynamic-items-container"
-                      key={item.id + "d"}
-                    >
+                    <div className="invoice-dynamic-items-container" key={i}>
                       {/* Desktop */}
                       <li
-                        key={item.id}
+                        key={i + "d"}
                         className="flex-row flex-row--center invoice-list-item"
                         tabIndex="0"
                       >
@@ -170,7 +167,7 @@ const InvoiceDisplayCard = (props) => {
                       </li>
                       {/* Mobile */}
                       <li
-                        key={item.id + "m"}
+                        key={i + "m"}
                         className="flex-row flex-row--center invoice-list-item-mobile"
                         tabIndex="0"
                       >
