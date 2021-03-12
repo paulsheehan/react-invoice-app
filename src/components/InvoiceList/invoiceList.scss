@@ -52,15 +52,9 @@
   // all item-values
   .invoice-list-item-value {
     text-align: left;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 
   // specific item-values
-  .hash {
-    color: $hash-color;
-  }
   .invoice-id {
     margin-right: 40px;
     width: 63px;
@@ -83,46 +77,9 @@
   .arrow {
     margin-left: 20px;
   }
-
-  // status element
-  .invoice-list-status {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 104px;
-    height: 40px;
-    border-radius: 6px;
-    &.paid {
-      color: #33d69f;
-      background-color: lighten(#33d69f, 45%);
-    }
-    &.pending {
-      color: #ff8f00;
-      background-color: lighten(#ff8f00, 45%);
-    }
-    &.draft {
-      color: #373b53;
-      background-color: lighten(#979797, 35%);
-    }
-    .status-container {
-      display: flex;
-      align-items: flex-end;
-    }
-    .status-text {
-      color: currentColor;
-      line-height: 9px;
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: capitalize;
-    }
-    .status-point {
-      display: inline-block;
-      background-color: currentColor;
-      height: 8px;
-      width: 8px;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
+  .extra-space:after {
+    content: " ";
+    white-space: pre;
   }
 }
 

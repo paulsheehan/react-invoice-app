@@ -28,14 +28,42 @@ button,
 .bold {
   font-weight: bold;
 }
+.hash {
+  color: $hash-color;
+}
 .light-text {
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
   color: $light-text-3;
+  &--1 {
+    color: $light-text-1;
+  }
   &--2 {
     color: $light-text-2;
   }
+}
+.light-small {
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: -0.23px;
+  color: $light-text-1;
+}
+.item-title {
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.31px;
+  font-weight: bold;
+}
+.big-total {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+}
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 @media only screen and (max-width: $mobile-br) {

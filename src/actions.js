@@ -24,9 +24,10 @@ export const requestLocalInvoices = () => (dispatch) => {
 export const requestLocalInvoice = (invoiceId) => async (dispatch) => {
   dispatch({ type: REQUEST_LOCAL_INVOICE_PENDING });
   try {
-    let payload = await localInvoiceData.find(
-      (invoice) => invoice.id === invoiceId
-    );
+    let payload = await new Promise(function (resolve) {
+      resolve(localInvoiceData.find((invoice) => invoice.id === invoiceId));
+    });
+
     if (payload) {
       dispatch({
         type: REQUEST_LOCAL_INVOICE_SUCCESS,
