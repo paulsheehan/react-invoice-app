@@ -85,7 +85,7 @@ const InvoiceDisplayCard = (props) => {
                     Payment Due
                   </span>
                   <span className="item-title invoice-item-title">
-                    {prettyDate(invoice.createdAt)}
+                    {prettyDate(invoice.paymentDue)}
                   </span>
                 </div>
               </div>
@@ -175,7 +175,7 @@ const InvoiceDisplayCard = (props) => {
                           <span className="body-1 bold invoice-list-value invoice-list-name word-wrap">
                             {item.name}
                           </span>
-                          <span className="light-text light-text--1 bold">
+                          <span className="light-text light-text--3 bold">
                             {item.quantity} x{" "}
                             <span className="extra-space">£</span>
                             {item.price}
@@ -193,7 +193,7 @@ const InvoiceDisplayCard = (props) => {
               {/* List Total */}
               <div className="flex-row flex-row--center invoice-balance-total">
                 <span className="body-2">Amount Due</span>
-                <span className="big-total">
+                <span className="big-total bold">
                   <span className="extra-space">£ </span>
                   {invoice.total}
                 </span>

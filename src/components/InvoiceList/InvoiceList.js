@@ -14,10 +14,12 @@ const InvoiceList = (props) => {
       <div className="invoice-list-head flex-row flex-row--center">
         <div>
           <h1 className="invoice-list-head-title">Invoices</h1>
-          <p className="light-text desktop">
+          <p className="light-text light-text--1 desktop">
             There are {props.invoices.length} total invoices
           </p>
-          <p className="light-text mobile">{props.invoices.length} invoices</p>
+          <p className="light-text light-text--1 mobile">
+            {props.invoices.length} invoices
+          </p>
         </div>
         <div className="invoice-filter">
           <span className="body-1 bold desktop">Filter by status</span>
@@ -48,7 +50,7 @@ const InvoiceList = (props) => {
                   <span className="hash">#</span>
                   {invoice.id}
                 </div>
-                <div className="invoice-list-item-value date light-text desktop">
+                <div className="invoice-list-item-value date light-text light-text--1 desktop">
                   <span className="extra-space">Due </span>{" "}
                   {prettyDate(invoice.paymentDue)}
                 </div>

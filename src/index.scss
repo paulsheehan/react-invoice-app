@@ -16,7 +16,7 @@ body {
   font-family: "Spartan", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $light-bg;
+  background-color: $page-bg;
   color: $normal-text;
 }
 
@@ -66,15 +66,15 @@ button,
   border-radius: 6px;
   &.paid {
     color: #33d69f;
-    background-color: lighten(#33d69f, 45%);
+    background-color: $status-paid-bg;
   }
   &.pending {
     color: #ff8f00;
-    background-color: lighten(#ff8f00, 45%);
+    background-color: $status-pending-bg;
   }
   &.draft {
-    color: #373b53;
-    background-color: lighten(#979797, 35%);
+    color: $status-draft-text-color;
+    background-color: $status-draft-bg;
   }
   .status-container {
     display: flex;
