@@ -21,19 +21,9 @@
     margin-top: 32px;
     margin-bottom: 24px;
     padding: 20px 32px;
-
-    .status {
-      margin-left: 16px;
-    }
-    .buttons-menu {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-left: auto;
-      button:not(:last-child) {
-        margin-right: 8px;
-      }
-    }
+  }
+  .status {
+    margin-left: 16px;
   }
   .invoice-display-main {
     display: flex;
@@ -93,6 +83,41 @@
     color: #ffffff;
     padding: 24px 32px;
   }
+
+  .invoice-list-item-mobile {
+    display: none;
+  }
+}
+
+.invoice-mobile-menu-container {
+  display: none;
+  position: relative;
+  .mobile-menu-absolute-container {
+    position: absolute;
+    width: 100vw;
+    background-color: $item-bg;
+    left: -24px;
+  }
+  .buttons-menu {
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px;
+  }
+}
+.buttons-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  button:not(:last-child) {
+    margin-right: 8px;
+  }
+  &--desktop {
+    display: flex;
+  }
+  &--mobile {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: $laptop-br) {
@@ -105,7 +130,11 @@
 
 @media only screen and (max-width: $mobile-br) {
   .invoice-display-card {
-    .invoice-display-main {
+    margin-top: 32px;
+    margin-bottom: 56px;
+    .invoice-display-main,
+    .invoice-list-container,
+    .invoice-balance-total {
       padding: 24px;
     }
     .invoice-top {
@@ -113,6 +142,9 @@
     }
     .id-description {
       margin-bottom: 30px;
+    }
+    .invoice-list-item {
+      display: none;
     }
     .invoice-item-title {
       margin-bottom: 4px;
@@ -130,6 +162,36 @@
     }
     .invoice-email-col {
       margin-top: 32px;
+    }
+    .invoice-list-item-mobile {
+      display: flex;
+    }
+    .invoice-dynamic-items-container:not(:last-child) {
+      margin-bottom: 24px;
+    }
+    .invoice-list-value {
+      width: auto;
+      max-width: 171px;
+    }
+    .invoice-list-name {
+      margin-bottom: 8px;
+    }
+  }
+  .invoice-mobile-menu-container {
+    display: block;
+  }
+  .buttons-menu {
+    display: none;
+    &--desktop {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-br) {
+  .invoice-display-card {
+    .invoice-display-main {
+      padding: 20px;
     }
   }
 }

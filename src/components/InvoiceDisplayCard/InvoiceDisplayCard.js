@@ -27,7 +27,7 @@ const InvoiceDisplayCard = (props) => {
             </div>
           ) : null}
 
-          <div className="buttons-menu">
+          <div className="buttons-menu buttons-menu--desktop">
             <button className="primary-button default">
               <span>Edit</span>
             </button>
@@ -94,7 +94,7 @@ const InvoiceDisplayCard = (props) => {
                 <span className="light-text light-text--1 invoice-item-light">
                   Bill To
                 </span>
-                <span className="item-title invoice-item-title">
+                <span className="item-title invoice-item-title word-wrap">
                   {invoice ? invoice["clientName"] : null}
                 </span>
                 <span className="light-small">
@@ -143,22 +143,53 @@ const InvoiceDisplayCard = (props) => {
 
                 {invoice.items.map((item) => {
                   return (
-                    <li className="flex-row flex-row--center invoice-list-item">
-                      <span className="body-1 bold invoice-list-value invoice-list-name">
-                        {item.name}
-                      </span>
-                      <span className="light-text light-text--1 bold invoice-list-value invoice-list-quantity">
-                        {item.quantity}
-                      </span>
-                      <span className="light-small light-text--1 bold invoice-list-value invoice-list-price">
-                        <span className="extra-space">£ </span>
-                        {item.price}
-                      </span>
-                      <span className="body-1 bold invoice-list-value invoice-list-total">
-                        <span className="extra-space">£ </span>
-                        {item.total}
-                      </span>
-                    </li>
+                    <div
+                      className="invoice-dynamic-items-container"
+                      key={item.id + "d"}
+                    >
+                      {/* Desktop */}
+                      <li
+                        key={item.id}
+                        className="flex-row flex-row--center invoice-list-item"
+                        tabIndex="0"
+                      >
+                        <span className="body-1 bold invoice-list-value invoice-list-name">
+                          {item.name}
+                        </span>
+                        <span className="light-text light-text--1 bold invoice-list-value invoice-list-quantity">
+                          {item.quantity}
+                        </span>
+                        <span className="light-small light-text--1 bold invoice-list-value invoice-list-price">
+                          <span className="extra-space">£ </span>
+                          {item.price}
+                        </span>
+                        <span className="body-1 bold invoice-list-value invoice-list-total">
+                          <span className="extra-space">£ </span>
+                          {item.total}
+                        </span>
+                      </li>
+                      {/* Mobile */}
+                      <li
+                        key={item.id + "m"}
+                        className="flex-row flex-row--center invoice-list-item-mobile"
+                        tabIndex="0"
+                      >
+                        <div className="flex-col">
+                          <span className="body-1 bold invoice-list-value invoice-list-name word-wrap">
+                            {item.name}
+                          </span>
+                          <span className="light-text light-text--1 bold">
+                            {item.quantity} x{" "}
+                            <span className="extra-space">£</span>
+                            {item.price}
+                          </span>
+                        </div>
+                        <span className="body-1 bold invoice-list-value invoice-list-total">
+                          <span className="extra-space">£ </span>
+                          {item.total}
+                        </span>
+                      </li>
+                    </div>
                   );
                 })}
               </ul>
@@ -172,6 +203,21 @@ const InvoiceDisplayCard = (props) => {
               </div>
             </div>
           ) : null}
+        </div>
+      </div>
+      <div className="invoice-mobile-menu-container">
+        <div className="mobile-menu-absolute-container">
+          <div className="buttons-menu buttons-menu--mobile">
+            <button className="primary-button default">
+              <span>Edit</span>
+            </button>
+            <button className="primary-button danger">
+              <span>Delete</span>
+            </button>
+            <button className="primary-button">
+              <span>Mark as Paid</span>
+            </button>
+          </div>
         </div>
       </div>
     </>
