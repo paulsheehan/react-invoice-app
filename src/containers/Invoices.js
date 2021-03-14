@@ -2,6 +2,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { requestLocalInvoices } from "../actions";
 import InvoiceList from "../components/InvoiceList/InvoiceList";
+import Navbar from "../components/Navbar/Navbar";
 
 const mapStateToProps = (state) => {
   return {
@@ -24,9 +25,12 @@ class InvoicesContainer extends Component {
     const { isPending, invoices } = this.props;
 
     return (
-      <div className="page-content-container">
-        {isPending ? <h1>Loading</h1> : <InvoiceList invoices={invoices} />}
-      </div>
+      <>
+        <Navbar />
+        <div className="page-content-container">
+          {isPending ? <h1>Loading</h1> : <InvoiceList invoices={invoices} />}
+        </div>
+      </>
     );
   }
 }

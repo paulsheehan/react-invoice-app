@@ -1,0 +1,52 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.navbar {
+  @include themify {
+    background-color: $nav-color;
+  }
+  overflow: hidden;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 103px;
+  border-radius: 0 20px 20px 0;
+  .logo-container,
+  .theme-swap-container,
+  .avatar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo-container {
+    padding: 33px 31px 32px 32px;
+    background-color: $light-primary;
+  }
+  .theme-swap-container {
+    margin-top: auto;
+    padding: 28px 42px 28px 41px;
+  }
+  .avatar-container {
+    border-top: 1px solid #494e6e;
+    padding: 24px 32px 24px 31px;
+  }
+  .logo {
+  }
+  .theme-swap-button {
+    background-color: transparent;
+    border-style: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
