@@ -82,8 +82,10 @@ button,
     }
   }
   &.draft {
-    color: $status-draft-text-color;
-    background-color: $status-draft-bg;
+    @include themify {
+      color: $status-draft-text-color;
+      background-color: $status-draft-bg;
+    }
   }
   .status-container {
     display: flex;
@@ -114,7 +116,9 @@ button,
     margin-left: 24px;
   }
   a {
-    color: $normal-text;
+    @include themify {
+      color: $normal-text;
+    }
     text-decoration: none;
   }
 }
