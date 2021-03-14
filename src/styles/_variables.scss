@@ -83,7 +83,7 @@ $themes: (
     hard-item-bg: #373b53,
     status-draft-text-color: #373b53,
     status-paid-bg: #f3fdfa,
-    status-pending-bg: green,
+    status-pending-bg: #fff9f0,
     status-draft-bg: #f4f4f5,
   ),
   "dark": (
@@ -101,7 +101,7 @@ $themes: (
     hard-item-bg: #0c0e16,
     status-draft-text-color: #dfe3fa,
     status-paid-bg: #1f2b3f,
-    status-pending-bg: blue,
+    status-pending-bg: #2b2736,
     status-draft-bg: #292c44,
   ),
 ) !default;

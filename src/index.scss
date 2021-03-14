@@ -70,7 +70,9 @@ button,
   border-radius: 6px;
   &.paid {
     color: #33d69f;
-    background-color: $status-paid-bg;
+    @include themify {
+      background-color: $status-paid-bg;
+    }
   }
   &.pending {
     color: #ff8f00;
