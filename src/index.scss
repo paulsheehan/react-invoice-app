@@ -17,8 +17,8 @@ body {
   font-family: "Spartan", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $normal-text;
   @include themify {
+    color: $normal-text;
     background-color: $page-bg;
   }
 }
