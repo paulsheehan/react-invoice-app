@@ -28,24 +28,80 @@ $hash-color: #888eb0;
 // $status-draft-bg: #f4f4f5;
 
 // Dark theme
-$base-bg-col: #1e2139;
-$normal-text: #ffffff;
-$light-text-1: #dfe3fa;
-$light-text-2: #ffffff;
-$light-text-3: #888eb0;
-$border-col: #252945;
-$default: #252945;
-$default-button-hover: #ffffff;
-$nav-color: #1e2139;
-$page-bg: #141625;
-$item-bg: #1e2139;
-$hard-item-bg: #0c0e16;
-$status-draft-text-color: #dfe3fa;
-$status-paid-bg: #1f2b3f;
-$status-pending-bg: #2b2736;
-$status-draft-bg: #292c44;
+// $base-bg-col: #1e2139;
+// $normal-text: #ffffff;
+// $light-text-1: #dfe3fa;
+// $light-text-2: #ffffff;
+// $light-text-3: #888eb0;
+// $border-col: #252945;
+// $default: #252945;
+// $default-button-hover: #ffffff;
+// $nav-color: #1e2139;
+// $page-bg: #141625;
+// $item-bg: #1e2139;
+// $hard-item-bg: #0c0e16;
+// $status-draft-text-color: #dfe3fa;
+// $status-paid-bg: #1f2b3f;
+// $status-pending-bg: #2b2736;
+// $status-draft-bg: #292c44;
+
+$base-bg-col: null;
+$normal-text: null;
+$light-text-1: null;
+$light-text-2: null;
+$light-text-3: null;
+$border-col: null;
+$default: null;
+$default-button-hover: null;
+$nav-color: null;
+$page-bg: null;
+$item-bg: null;
+$hard-item-bg: null;
+$status-draft-text-color: null;
+$status-paid-bg: null;
+$status-pending-bg: null;
+$status-draft-bg: null;
 
 // Breakpoints
 $laptop-br: 1024px;
 $mobile-br: 768px;
 $mobile-sm-br: 325px;
+
+$themes: (
+  "light": (
+    base-bg-col: #ffffff,
+    normal-text: #0c0e16,
+    light-text-1: #7e88c3,
+    light-text-2: #858bb2,
+    light-text-3: #888eb0,
+    border-col: #dfe3fa,
+    default: #f9fafe,
+    default-button-hover: #dfe3fa,
+    nav-color: #373b53,
+    page-bg: #f8f8fb,
+    item-bg: #ffffff,
+    hard-item-bg: #373b53,
+    status-draft-text-color: #373b53,
+    status-paid-bg: #f3fdfa,
+    status-pending-bg: green,
+    status-draft-bg: #f4f4f5,
+  ),
+  "dark": (
+    base-bg-col: #1e2139,
+    normal-text: #ffffff,
+    light-text-1: #dfe3fa,
+    light-text-2: #ffffff,
+    light-text-3: #888eb0,
+    border-col: #252945,
+    default: #252945,
+    default-button-hover: #ffffff,
+    nav-color: #1e2139,
+    page-bg: #141625,
+    item-bg: #1e2139,
+    hard-item-bg: #0c0e16,
+    status-draft-text-color: #dfe3fa,
+    status-paid-bg: #1f2b3f,
+    status-pending-bg: blue,
+    status-draft-bg: #292c44,
+  ),
+) !default;

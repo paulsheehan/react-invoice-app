@@ -1,0 +1,41 @@
+// Initialize our variables as `null` so that when used outside of `themify`,
+// they actually output nothing.
+$color-primary: null;
+$color-secondary: null;
+
+/// Themify mixin
+/// @author Hugo Giraudel
+/// @param {Map} $themes [$themes] - Map of themes to use
+@mixin themify($themes: $themes) {
+  // Iterate over the themes
+  @each $theme, $colors in $themes {
+    // Create a selector (e.g. `.media.theme-unicorn, .theme-unicorn .media`)
+    &.theme-#{$theme},
+    .theme-#{$theme} & {
+      // Set the theme variables with `!global`
+      $page-bg: map-get($colors, "base-bg-col") !global;
+      $page-bg: map-get($colors, "normal-text") !global;
+      $page-bg: map-get($colors, "light-text-1") !global;
+      $page-bg: map-get($colors, "light-text-2") !global;
+      $page-bg: map-get($colors, "light-text-3") !global;
+      $page-bg: map-get($colors, "border-col") !global;
+      $page-bg: map-get($colors, "default") !global;
+      $page-bg: map-get($colors, "default-button-hover") !global;
+      $page-bg: map-get($colors, "nav-color") !global;
+      $page-bg: map-get($colors, "page-bg") !global;
+      $page-bg: map-get($colors, "item-bg") !global;
+      $page-bg: map-get($colors, "hard-item-bg") !global;
+      $page-bg: map-get($colors, "status-draft-text-color") !global;
+      $page-bg: map-get($colors, "status-paid-bg") !global;
+      $page-bg: map-get($colors, "status-pending-bg") !global;
+      $page-bg: map-get($colors, "status-draft-bg") !global;
+
+      // Output user content
+      @content;
+
+      // Unset the theme variables with `!global`
+      $color-primary: null !global;
+      $color-secondary: null !global;
+    }
+  }
+}
