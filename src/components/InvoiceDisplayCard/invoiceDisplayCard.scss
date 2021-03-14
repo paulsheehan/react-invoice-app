@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 .invoice-display-card {
   margin-top: 64px;
@@ -15,7 +16,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $item-bg;
+    @include themify {
+      background-color: $item-bg;
+    }
     border-radius: 8px;
     height: 88px;
     margin-top: 32px;
@@ -28,7 +31,9 @@
   .invoice-display-main {
     display: flex;
     flex-direction: column;
-    background-color: $item-bg;
+    @include themify {
+      background-color: $item-bg;
+    }
     padding: 48px;
   }
 
@@ -38,7 +43,9 @@
     margin-bottom: 45px;
   }
   .invoice-list-container {
-    background-color: $default;
+    @include themify {
+      background-color: $default;
+    }
     padding: 16px 32px 24px 32px;
   }
 
@@ -79,7 +86,9 @@
     text-align: right;
   }
   .invoice-balance-total {
-    background-color: $hard-item-bg;
+    @include themify {
+      background-color: $hard-item-bg;
+    }
     color: #ffffff;
     padding: 24px 32px;
   }
@@ -95,7 +104,9 @@
   .mobile-menu-absolute-container {
     position: absolute;
     width: 100vw;
-    background-color: $item-bg;
+    @include themify {
+      background-color: $item-bg;
+    }
     left: -24px;
   }
   .buttons-menu {
