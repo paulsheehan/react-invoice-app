@@ -17,10 +17,9 @@ body {
   font-family: "Spartan", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // background-color: $page-bg;
   color: $normal-text;
   @include themify {
-    background-color: $page-bg; /* 1 */
+    background-color: $page-bg;
   }
 }
 
@@ -76,9 +75,8 @@ button,
   }
   &.pending {
     color: #ff8f00;
-    // background-color: $status-pending-bg;
     @include themify {
-      background-color: $status-pending-bg; /* 1 */
+      background-color: $status-pending-bg;
     }
   }
   &.draft {

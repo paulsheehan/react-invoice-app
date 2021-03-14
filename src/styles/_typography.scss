@@ -35,22 +35,32 @@ button,
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: $light-text-3;
+  @include themify {
+    color: $light-text-3;
+  }
   &--1 {
-    color: $light-text-1;
+    @include themify {
+      color: $light-text-1;
+    }
   }
   &--2 {
-    color: $light-text-2;
+    @include themify {
+      color: $light-text-2;
+    }
   }
   &--3 {
-    color: $light-text-3;
+    @include themify {
+      color: $light-text-3;
+    }
   }
 }
 .light-small {
   font-size: 11px;
   line-height: 18px;
   letter-spacing: -0.23px;
-  color: $light-text-1;
+  @include themify {
+    color: $light-text-1; /* 1 */
+  }
 }
 .item-title {
   font-size: 15px;
