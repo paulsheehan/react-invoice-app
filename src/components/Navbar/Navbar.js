@@ -8,7 +8,9 @@ const Navbar = (props) => {
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <Logo className="logo" />
+        <button className="logo-button">
+          <Logo className="logo" />
+        </button>
       </div>
       <div className="theme-swap-container">
         <button className="theme-swap-button">

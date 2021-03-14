@@ -23,9 +23,31 @@
     justify-content: center;
     align-items: center;
   }
+  button {
+    background-color: transparent;
+    border-style: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .logo-container {
+    position: relative;
     padding: 33px 31px 32px 32px;
+    border-radius: 0 20px 20px 0;
     background-color: $light-primary;
+    z-index: 10;
+    overflow: hidden;
+    &::after {
+      content: "";
+      height: 100px;
+      width: 100%;
+      z-index: 100;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: #9277ff;
+      border-radius: 20px 0 0 20px;
+    }
   }
   .theme-swap-container {
     margin-top: auto;
@@ -35,14 +57,9 @@
     border-top: 1px solid #494e6e;
     padding: 24px 32px 24px 31px;
   }
-  .logo {
-  }
-  .theme-swap-button {
-    background-color: transparent;
-    border-style: none;
-    &:hover {
-      cursor: pointer;
-    }
+  .logo-button {
+    z-index: 1000;
+    transform: scale(1.4);
   }
   .avatar-image {
     width: 40px;
