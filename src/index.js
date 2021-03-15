@@ -8,7 +8,11 @@ import thunkMiddleware from "redux-thunk";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.scss";
-import { requestLocalInvoices, requestLocalInvoice } from "./reducers";
+import {
+  requestLocalInvoices,
+  requestLocalInvoice,
+  changeTheme,
+} from "./reducers";
 import Invoices from "./containers/Invoices";
 import SingleInvoice from "./containers/SingleInvoice";
 
@@ -17,6 +21,7 @@ const logger = createLogger();
 const rootReducer = combineReducers({
   requestLocalInvoices,
   requestLocalInvoice,
+  changeTheme,
 });
 const store = createStore(
   rootReducer,
@@ -37,7 +42,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
 document.body.classList.add("theme-light");
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
