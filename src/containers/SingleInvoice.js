@@ -35,20 +35,22 @@ class SingleInvoiceContainer extends Component {
       return <Redirect to="/" />;
     } else {
       return (
-        <div className="page-content-container">
-          {isPending ? (
-            <h1>Loading</h1>
-          ) : (
-            <>
-              <Navbar onChangeTheme={onChangeTheme} theme={theme} />
-              {Object.keys(invoice).length ? (
-                <InvoiceDisplayCard invoice={invoice} />
-              ) : (
-                <h1>No Invoice</h1>
-              )}
-            </>
-          )}
-        </div>
+        <>
+          <Navbar onChangeTheme={onChangeTheme} theme={theme} />
+          <div className="page-content-container">
+            {isPending ? (
+              <h1>Loading</h1>
+            ) : (
+              <>
+                {Object.keys(invoice).length ? (
+                  <InvoiceDisplayCard invoice={invoice} />
+                ) : (
+                  <h1>No Invoice</h1>
+                )}
+              </>
+            )}
+          </div>
+        </>
       );
     }
   }
