@@ -1,4 +1,5 @@
 import "./navbar.scss";
+import useRouter from "../../utilities/useRouter";
 import { ReactComponent as IconMoon } from "../../assets/icon-moon.svg";
 import { ReactComponent as IconSun } from "../../assets/icon-sun.svg";
 import ImageAvatar from "../../assets/image-avatar.jpg";
@@ -6,6 +7,7 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { useEffect } from "react";
 
 const Navbar = (props) => {
+  const router = useRouter();
   useEffect(() => {
     if (props.theme === "dark") {
       document.body.classList.remove("theme-light");
@@ -18,7 +20,7 @@ const Navbar = (props) => {
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <button className="logo-button">
+        <button className="logo-button" onClick={(e) => router.push("/")}>
           <Logo className="logo" />
         </button>
       </div>
