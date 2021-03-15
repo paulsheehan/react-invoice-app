@@ -1,0 +1,122 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.navbar {
+  @include themify {
+    background-color: $nav-color;
+  }
+  overflow: hidden;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 103px;
+  border-radius: 0 20px 20px 0;
+  .logo-container,
+  .theme-swap-container,
+  .avatar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  button {
+    background-color: transparent;
+    border-style: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .logo-container {
+    position: relative;
+    padding: 33px 31px 32px 32px;
+    border-radius: 0 20px 20px 0;
+    background-color: $light-primary;
+    z-index: 10;
+    overflow: hidden;
+    &::after {
+      content: "";
+      height: 100px;
+      width: 100%;
+      z-index: 100;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: #9277ff;
+      border-radius: 20px 0 0 20px;
+    }
+  }
+  .theme-swap-container {
+    margin-top: auto;
+    padding: 28px 42px 28px 41px;
+  }
+  .avatar-container {
+    border-top: 1px solid #494e6e;
+    padding: 24px 32px 24px 31px;
+  }
+  .logo-button {
+    z-index: 1000;
+    transform: scale(1.4);
+  }
+  .avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+
+@media only screen and (max-width: $laptop-br) {
+  .navbar {
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    width: 100vw;
+    border-radius: 0;
+    .logo-container,
+    .theme-swap-container,
+    .avatar-container {
+      width: auto;
+    }
+    .logo-container {
+      margin-right: auto;
+      padding: 26px 24px 25px 25px;
+    }
+    .theme-swap-container {
+      padding: 30px 32px 30px 32px;
+    }
+    .avatar-container {
+      border-top: 0;
+      border-left: 1px solid #494e6e;
+      padding: 24px 32px 24px 32px;
+    }
+    .logo-button {
+      transform: scale(1.1);
+    }
+    .avatar-image {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-br) {
+  .navbar {
+    height: 72px;
+    .logo-container {
+      padding: 23px 22px 23px 22px;
+    }
+    .theme-swap-container {
+      padding: 26px 24px 26px 24px;
+    }
+    .avatar-container {
+      padding: 20px 24px 20px 24px;
+    }
+    .logo-button {
+      transform: scale(1);
+    }
+  }
+}
