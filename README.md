@@ -1,5 +1,7 @@
 # react-invoice-app
-Simple React SPA for managing invoices. Git-pages App is available to view on http://paulsheehan.github.io/react-invoice-app 
+Simple React SPA for managing invoices. 
+
+Git-pages App is available to view on http://paulsheehan.github.io/react-invoice-app 
 
 ## npm install
 
