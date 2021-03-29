@@ -5,17 +5,22 @@ import {
   REQUEST_LOCAL_INVOICE_PENDING,
   REQUEST_LOCAL_INVOICE_SUCCESS,
   REQUEST_LOCAL_INVOICE_FAILED,
+  FILTER_INVOICES_PENDING,
+  FILTER_INVOICES_SUCCESS,
+  FILTER_INVOICES_FAILED,
   CHANGE_THEME_SUCCESS,
 } from "./constants.js";
-import { localInvoiceData } from "./data/data.js";
 
-export const requestLocalInvoices = () => (dispatch) => {
+export const requestLocalInvoices = () => async (dispatch) => {
   dispatch({ type: REQUEST_LOCAL_INVOICES_PENDING });
 
   try {
+    let payload = await fetch("http://localhost:3004/invoices").then((data) => {
+      return data.json();
+    });
     dispatch({
       type: REQUEST_LOCAL_INVOICES_SUCCESS,
-      payload: localInvoiceData,
+      payload: payload,
     });
   } catch (error) {
     dispatch({ type: REQUEST_LOCAL_INVOICES_FAILED, payload: error });
@@ -25,8 +30,10 @@ export const requestLocalInvoices = () => (dispatch) => {
 export const requestLocalInvoice = (invoiceId) => async (dispatch) => {
   dispatch({ type: REQUEST_LOCAL_INVOICE_PENDING });
   try {
-    let payload = await new Promise(function (resolve) {
-      resolve(localInvoiceData.find((invoice) => invoice.id === invoiceId));
+    let payload = await fetch(
+      "http://localhost:3004/invoices/" + invoiceId
+    ).then((data) => {
+      return data.json();
     });
 
     if (payload) {
@@ -42,6 +49,20 @@ export const requestLocalInvoice = (invoiceId) => async (dispatch) => {
     }
   } catch (error) {
     dispatch({ type: REQUEST_LOCAL_INVOICE_FAILED, payload: error });
+  }
+};
+
+export const filterInvoices = (invoices, filterValue) => (dispatch) => {
+  dispatch({ type: FILTER_INVOICES_PENDING });
+  try {
+    dispatch({
+      type: FILTER_INVOICES_SUCCESS,
+      payload: invoices.filter((invoice) => {
+        return (invoice.status = filterValue);
+      }),
+    });
+  } catch (error) {
+    dispatch({ type: FILTER_INVOICES_FAILED, payload: error });
   }
 };
 

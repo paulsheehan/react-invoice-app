@@ -1,4 +1,5 @@
 import useRouter from "../../utilities/useRouter";
+import { useState } from "react";
 import prettyDate from "../../utilities/prettyDate";
 import "./invoiceList.scss";
 import { ReactComponent as IconArrowDown } from "../../assets/icon-arrow-down.svg";
@@ -8,6 +9,7 @@ import { ReactComponent as EmptyIllustration } from "../../assets/illustration-e
 
 const InvoiceList = (props) => {
   const router = useRouter();
+  const [isFilterMenuOpen, setFilterBool] = useState(false);
   return (
     <>
       {/* Head element */}
@@ -21,11 +23,58 @@ const InvoiceList = (props) => {
             {props.invoices.length} invoices
           </p>
         </div>
-        <div className="invoice-filter">
-          <span className="body-1 bold desktop">Filter by status</span>
-          <span className="body-1 bold mobile">Filter</span>
-          <IconArrowDown className="arrow" />
+
+        <div className="invoice-filter-container">
+          <div
+            className="invoice-filter"
+            role="button"
+            aria-haspopup="true"
+            onClick={() => setFilterBool(!isFilterMenuOpen)}
+          >
+            <span className="body-1 bold desktop">Filter by status</span>
+            <span className="body-1 bold mobile">Filter</span>
+            <IconArrowDown className="arrow" />
+          </div>
+          <ul
+            className={"filter-menu " + (isFilterMenuOpen ? "open" : null)}
+            role="group"
+          >
+            <li className="filter-menu-item" role="menuitem">
+              <input
+                type="checkbox"
+                className="filter-menu-checkbox"
+                value="Draft"
+                name="status"
+                aria-checked="false"
+              />
+              <div className="custom-checkbox"></div>
+              <label className="body-1 bold">Draft</label>
+            </li>
+            <li className="filter-menu-item" role="menuitem">
+              <input
+                type="checkbox"
+                className="filter-menu-checkbox"
+                value="Pending"
+                name="status"
+                aria-checked="false"
+              />
+              <div className="custom-checkbox"></div>
+              <label className="body-1 bold">Pending</label>
+            </li>
+            <li className="filter-menu-item" role="menuitem">
+              <input
+                type="checkbox"
+                className="filter-menu-checkbox"
+                value="Paid"
+                name="status"
+                aria-checked="false"
+              />
+              <div className="custom-checkbox"></div>
+              <label className="body-1 bold">Paid</label>
+            </li>
+          </ul>
         </div>
+
         <button className="primary-button with-icon">
           <span className="button-icon-container">
             <IconPlus />

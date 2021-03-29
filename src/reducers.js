@@ -5,6 +5,9 @@ import {
   REQUEST_LOCAL_INVOICE_PENDING,
   REQUEST_LOCAL_INVOICE_SUCCESS,
   REQUEST_LOCAL_INVOICE_FAILED,
+  FILTER_INVOICES_PENDING,
+  FILTER_INVOICES_SUCCESS,
+  FILTER_INVOICES_FAILED,
   CHANGE_THEME_SUCCESS,
 } from "./constants.js";
 
@@ -68,6 +71,25 @@ export const requestLocalInvoice = (
   }
 };
 
+export const filterInvoices = (state = initialStateInvoices, action = {}) => {
+  switch (action.type) {
+    case FILTER_INVOICES_PENDING:
+      return Object.assign({}, state, { isPending: true });
+    case FILTER_INVOICES_SUCCESS:
+      return Object.assign({}, state, {
+        invoices: action.payload,
+        isPending: false,
+      });
+    case FILTER_INVOICES_FAILED:
+      return Object.assign({}, state, {
+        error: action.payload,
+        isPending: false,
+      });
+    default:
+      return state;
+  }
+};
+
 export const changeTheme = (state = initialStateChangeTheme, action = {}) => {
   switch (action.type) {
     case CHANGE_THEME_SUCCESS:
@@ -80,6 +102,7 @@ export const changeTheme = (state = initialStateChangeTheme, action = {}) => {
           theme: "dark",
         });
       }
+      break;
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import { requestLocalInvoices, changeTheme } from "../actions";
+import { requestLocalInvoices, filterInvoices, changeTheme } from "../actions";
 import InvoiceList from "../components/InvoiceList/InvoiceList";
 import Navbar from "../components/Navbar/Navbar";
 
@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onRequestLocalInvoices: () => dispatch(requestLocalInvoices()),
+    onFilterInvoices: () => dispatch(filterInvoices()),
     onChangeTheme: () => dispatch(changeTheme()),
   };
 };
@@ -25,7 +26,6 @@ class InvoicesContainer extends Component {
   }
   render() {
     const { isPending, invoices, onChangeTheme, theme } = this.props;
-
     return (
       <>
         <Navbar onChangeTheme={onChangeTheme} theme={theme} />

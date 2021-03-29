@@ -32,6 +32,7 @@ $color-secondary: null;
       $status-paid-bg: map-get($colors, "status-paid-bg") !global;
       $status-pending-bg: map-get($colors, "status-pending-bg") !global;
       $status-draft-bg: map-get($colors, "status-draft-bg") !global;
+      $menu-bg: map-get($colors, "menu-bg") !global;
 
       // Output user content
       @content;
