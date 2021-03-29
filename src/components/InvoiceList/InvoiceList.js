@@ -1,5 +1,5 @@
 import useRouter from "../../utilities/useRouter";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import prettyDate from "../../utilities/prettyDate";
 import "./invoiceList.scss";
 import { ReactComponent as IconArrowDown } from "../../assets/icon-arrow-down.svg";
@@ -10,6 +10,26 @@ import { ReactComponent as EmptyIllustration } from "../../assets/illustration-e
 const InvoiceList = (props) => {
   const router = useRouter();
   const [isFilterMenuOpen, setFilterBool] = useState(false);
+  const filterContainerRef = useRef(null);
+
+  /**
+   * Hook that closes menu on click-away
+   */
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        filterContainerRef.current &&
+        !filterContainerRef.current.contains(event.target)
+      ) {
+        setFilterBool(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [filterContainerRef]);
+
   return (
     <>
       {/* Head element */}
@@ -24,7 +44,7 @@ const InvoiceList = (props) => {
           </p>
         </div>
 
-        <div className="invoice-filter-container">
+        <div className="invoice-filter-container" ref={filterContainerRef}>
           <div
             className="invoice-filter"
             role="button"
