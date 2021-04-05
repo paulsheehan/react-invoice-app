@@ -10,7 +10,9 @@ import { ReactComponent as EmptyIllustration } from "../../assets/illustration-e
 const InvoiceList = (props) => {
   const router = useRouter();
   const [isFilterMenuOpen, setFilterBool] = useState(false);
+  const [currentFilters, updateCurrentFilters] = useState([]);
   const filterContainerRef = useRef(null);
+  const [filteredInvoices, updateFilteredInvoices] = useState(props.invoices);
 
   /**
    * Hook that closes menu on click-away
@@ -29,6 +31,51 @@ const InvoiceList = (props) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [filterContainerRef]);
+
+  useEffect(() => {
+    // console.log("useEffect", filteredInvoices);
+  }, [filteredInvoices]);
+
+  const updateFilters = (filter) => {
+    let filterIndexRef = currentFilters.indexOf(filter);
+    if (filterIndexRef < 0) {
+      const newFilters = [...currentFilters, filter];
+      updateCurrentFilters(() => {
+        return newFilters;
+      });
+      return newFilters;
+    } else {
+      const newFilters = [
+        ...currentFilters.slice(0, filterIndexRef),
+        ...currentFilters.slice(filterIndexRef + 1),
+      ];
+      updateCurrentFilters(() => {
+        return newFilters;
+      });
+      return newFilters;
+    }
+  };
+
+  const updateInvoices = async (filters) => {
+    if (filters.length < 1) {
+      await updateFilteredInvoices(() => [...props.invoices]);
+    } else {
+      if (filteredInvoices.length < 1) {
+        await updateFilteredInvoices(() => props.invoices);
+      } else {
+        await updateFilteredInvoices(() => [
+          ...props.invoices.filter((invoice) => {
+            return filters.includes(invoice.status);
+          }),
+        ]);
+      }
+    }
+  };
+
+  const onFilterSelect = (value) => {
+    let updatedFilters = updateFilters(value);
+    updateInvoices(updatedFilters);
+  };
 
   return (
     <>
@@ -65,7 +112,7 @@ const InvoiceList = (props) => {
                 className="filter-menu-checkbox"
                 value="Draft"
                 name="status"
-                aria-checked="false"
+                onClick={() => onFilterSelect("draft")}
               />
               <div className="custom-checkbox"></div>
               <label className="body-1 bold">Draft</label>
@@ -76,7 +123,7 @@ const InvoiceList = (props) => {
                 className="filter-menu-checkbox"
                 value="Pending"
                 name="status"
-                aria-checked="false"
+                onClick={() => onFilterSelect("pending")}
               />
               <div className="custom-checkbox"></div>
               <label className="body-1 bold">Pending</label>
@@ -87,7 +134,7 @@ const InvoiceList = (props) => {
                 className="filter-menu-checkbox"
                 value="Paid"
                 name="status"
-                aria-checked="false"
+                onClick={() => onFilterSelect("paid")}
               />
               <div className="custom-checkbox"></div>
               <label className="body-1 bold">Paid</label>
@@ -104,10 +151,10 @@ const InvoiceList = (props) => {
         </button>
       </div>
 
-      {props.invoices.length ? (
-        // Invoice List
+      {filteredInvoices.length ? (
+        // --- Invoice List ---
         <ul className="invoice-list">
-          {props.invoices.map((invoice) => {
+          {filteredInvoices.map((invoice) => {
             return (
               <li
                 className="invoice-list-item"

@@ -5,9 +5,6 @@ import {
   REQUEST_LOCAL_INVOICE_PENDING,
   REQUEST_LOCAL_INVOICE_SUCCESS,
   REQUEST_LOCAL_INVOICE_FAILED,
-  FILTER_INVOICES_PENDING,
-  FILTER_INVOICES_SUCCESS,
-  FILTER_INVOICES_FAILED,
   CHANGE_THEME_SUCCESS,
 } from "./constants.js";
 
@@ -49,20 +46,6 @@ export const requestLocalInvoice = (invoiceId) => async (dispatch) => {
     }
   } catch (error) {
     dispatch({ type: REQUEST_LOCAL_INVOICE_FAILED, payload: error });
-  }
-};
-
-export const filterInvoices = (invoices, filterValue) => (dispatch) => {
-  dispatch({ type: FILTER_INVOICES_PENDING });
-  try {
-    dispatch({
-      type: FILTER_INVOICES_SUCCESS,
-      payload: invoices.filter((invoice) => {
-        return (invoice.status = filterValue);
-      }),
-    });
-  } catch (error) {
-    dispatch({ type: FILTER_INVOICES_FAILED, payload: error });
   }
 };
 
