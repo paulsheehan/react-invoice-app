@@ -1,7 +1,7 @@
 # react-invoice-app
 Simple React App for managing invoices. 
 
-This was completed as oart of the following challege: https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl/hub
+This was completed as oart of the following challenge: https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl/hub
 
 Not to brag, but it is "guru" difficulty
 
